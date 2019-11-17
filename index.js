@@ -103,7 +103,7 @@ const modifyValueByJsonKey = (redisKey, JSONkey, value) => {
  */
 const getJSON = (redisKey) => {
     return new Promise((resolve, reject) => {
-        getInformationByKey(redisInstance,redisInstance)
+        getInformationByKey(redisInstance,redisKey)
             .then(data => {
                 resolve(data)
             })
