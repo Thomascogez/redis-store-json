@@ -110,10 +110,31 @@ const getJSON = (redisKey) => {
             .catch(err => {
                 reject("[redis-store-JSON] value not found on redis DB")
             })
+    })    
+}
+
+/**
+ * hasJSONkey
+ * 
+ * Test if a jsonKey exist on the JSON object stored on the database
+ * @param {*} redisKey Key where you want to search the json key
+ * @param {*} jsonKey  the json key to search
+ */
+const hasJSONkey = ( redisKey, jsonKey ) => {
+    return new Promise((resolve, reject) => {
+        getJSON(redisKey)
+            .then(data => {
+                if(data.hasOwnProperty(jsonKey)) {
+                    resolve(true);
+                }
+                resolve(false);
+            })
+            .catch(err => {
+                reject(err);
+            })
     })
-    
-    
+
 }
 
 
-module.exports = { use, getValueByJsonKey, set, modifyValueByJsonKey, getJSON }
+module.exports = { use, getValueByJsonKey, set, modifyValueByJsonKey, getJSON, hasJSONkey }

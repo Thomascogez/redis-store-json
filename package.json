@@ -1,6 +1,6 @@
 {
   "name": "redis-store-json",
-  "version": "0.0.2",
+  "version": "1.1.0",
   "description": "Light package for easily getting and storing json object on redis database",
   "main": "index.js",
   "homepage": "https://github.com/Thomascogez/redis-store-json",

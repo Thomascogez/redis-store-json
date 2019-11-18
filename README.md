@@ -1,4 +1,5 @@
 # redis-store-json
+<b> :warning: i did a mistake on versionning last version is 1.1.0. I'm sorry about that</b>
 
 This module was at the beginning for a personal project, but I decided to publish it.
 
@@ -183,6 +184,38 @@ let testSet = {
 redisJson.getValueByJsonKey("REDIS_DB_KEY","testKey1") 
 	.then(data =>{
     	console.log(data); //return "test"
+	})
+	.catch(err =>{
+    	console.error(err);
+	})
+```
+
+#### 		hasJSONkey(redisKey, JSONkey)
+
+> return if resolved return the value of  the key of the JSON object store in the DB
+
+##### Param
+
+| Name     | Description                       |
+| -------- | --------------------------------- |
+| redisKey | The key of the redis table to get |
+| JSONkey  | The JSON key to check             |
+
+
+
+##### Example
+
+```js
+...
+let testSet = {
+    "testKey1" : "test",
+    "testKey2" : "test2"
+}
+// set the data to redis
+
+redisJson.hasJSONkey("REDIS_DB_KEY","testKey1") 
+	.then(data =>{
+    	console.log(data); //return true
 	})
 	.catch(err =>{
     	console.error(err);
